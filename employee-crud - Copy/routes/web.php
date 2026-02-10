@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +14,7 @@ use App\Http\Controllers\DepartmentController;
 |
 */
 
-Route::get('/', fn() => redirect()->route('employees.index'));
 Route::resource('employees', EmployeeController::class);
 Route::patch('employees/{employee}/toggle-status', [EmployeeController::class, 'toggleStatus'])
     ->name('employees.toggle-status');
 
-Route::resource('departments', DepartmentController::class);
-
-Route::get('ajax/departments', [DepartmentController::class, 'ajaxList'])
-    ->name('ajax.departments');

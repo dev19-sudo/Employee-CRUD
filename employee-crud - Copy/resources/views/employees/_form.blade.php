@@ -54,20 +54,19 @@
         @error('joining_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
     </div>
 
-    {{-- Department (AJAX Select2) --}}
+    {{-- Department --}}
     <div class="col-md-4">
         <label class="form-label">Department</label>
-
         <select name="department_id"
-                class="form-select department-select @error('department_id') is-invalid @enderror">
-            {{-- IMPORTANT for Edit: show current selected value so it displays on load --}}
-            @if(!empty($employee?->department_id))
-                <option value="{{ $employee->department_id }}" selected>
-                    {{ $employee->department?->name }}
+                class="form-select @error('department_id') is-invalid @enderror">
+            <option value="">-- Select Department --</option>
+            @foreach($departments as $dept)
+                <option value="{{ $dept->id }}"
+                    @selected(old('department_id', $employee->department_id ?? '') == $dept->id)>
+                    {{ $dept->name }}
                 </option>
-            @endif
+            @endforeach
         </select>
-
         @error('department_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
     </div>
 

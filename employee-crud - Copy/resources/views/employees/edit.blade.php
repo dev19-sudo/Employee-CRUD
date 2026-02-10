@@ -32,38 +32,3 @@
     </div>
 </div>
 @endsection
-@push('scripts')
-<script>
-$(document).ready(function () {
-    $('.department-select').select2({
-        theme: 'bootstrap-5',
-        placeholder: '-- Select Department --',
-        allowClear: true,
-        width: '100%',
-
-        ajax: {
-            url: "{{ route('ajax.departments') }}",
-            dataType: 'json',
-            delay: 250,
-
-            data: function (params) {
-                return {
-                    q: params.term || '',           // search text
-                    page: params.page || 1
-                };
-            },
-
-            processResults: function (data) {
-                return {
-                    results: data.results,
-                    pagination: data.pagination
-                };
-            },
-
-            cache: true
-        }
-    });
-});
-</script>
-@endpush
-
