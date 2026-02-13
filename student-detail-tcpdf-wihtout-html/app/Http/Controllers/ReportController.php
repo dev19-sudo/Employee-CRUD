@@ -131,7 +131,7 @@ class MYPDF extends TCPDF
                 $this->SetFont('dejavusans', '', 10);
             }
 
-            // Row cells ('LR' like example_011)
+            // Row cells 
             $this->Cell($w[0], 7, $row[0], 'LR', 0, 'C', $fill);
             $this->Cell($w[1], 7, $row[1], 'LR', 0, 'L', $fill);
             $this->Cell($w[2], 7, $row[2], 'LR', 0, 'C', $fill);
