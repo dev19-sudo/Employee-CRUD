@@ -16,7 +16,7 @@
 
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="downloadMenuBtn">
               <li><a class="dropdown-item" href="#" id="downloadExcel">Download Excel</a></li>
-              <li><a class="dropdown-item" href="#" id="downloadPdf">Download PDF</a></li>
+              <li><a class="dropdown-item" href="{{ route('report.download') }}" id="downloadPdf">Download PDF</a></li>
             </ul>
           </div>
 
@@ -200,13 +200,6 @@ $(document).ready(function () {
         extend: 'excelHtml5',
         title: 'Students',
         exportOptions: { columns: [0,1,2,3] } // rollno,name,marks,dob
-      },
-      {
-        extend: 'pdfHtml5',
-        title: 'Students',
-        orientation: 'landscape',
-        pageSize: 'A4',
-        exportOptions: { columns: [0,1,2,3] }
       }
     ],
 
@@ -228,11 +221,6 @@ $(document).ready(function () {
     table.button('.buttons-excel').trigger();
   });
 
-  $('#downloadPdf').on('click', function(e){
-    e.preventDefault();
-    table.button('.buttons-pdf').trigger();
-  });
-
 
   // Trigger export based on dropdown selection
   $('#exportBtn').on('click', function () {
@@ -240,9 +228,7 @@ $(document).ready(function () {
 
     if (type === 'excel') {
       table.button('.buttons-excel').trigger();
-    } else {
-      table.button('.buttons-pdf').trigger();
-    }
+    } 
   });
 
   // CREATE
