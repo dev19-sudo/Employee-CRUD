@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row mb-3 m-4">
-    <div class="col-md-6">
-        <h3 class="mb-0">Edit Student</h3>
-    </div>
-    <div class="col-md-6 text-md-end mt-3 mt-md-0">
-        <a href="{{ route('students.index') }}" class="btn btn-outline-dark">Back</a>
-    </div>
-</div>
 
 <div class="card container mt-3">
+    <div class="row mb-3 m-4 mx-2">
+        <div class="col-md-6">
+            <h3 class="mb-0">Edit Student</h3>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <a href="{{ route('students.index') }}" class="btn btn-outline-dark">Back</a>
+        </div>
+    </div>
+
     <div class="card-body">
         <form id="studentForm" method="POST" enctype="multipart/form-data">
             @csrf
